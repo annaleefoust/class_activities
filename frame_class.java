@@ -12,7 +12,7 @@ public class frame_class {
         frame.setLayout(new FlowLayout(FlowLayout.LEFT));
 
         JPanel inputPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        inputPanel.setPreferredSize(new Dimension(500, 40));
+        // Removed fixed height here
 
         JLabel label = new JLabel("Enter numbers (comma separated):");
         JTextField textField = new JTextField(20);
@@ -24,9 +24,11 @@ public class frame_class {
 
         JTextArea resultArea = new JTextArea(20, 45);
         JScrollPane scrollPanel = new JScrollPane(resultArea);
+        scrollPanel.setPreferredSize(new Dimension(500, 400));
 
         action_class click = new action_class();
         sortButton.addActionListener(e -> click.doBubbleSort(textField, resultArea));
+
         frame.add(inputPanel);
         frame.add(scrollPanel);
         frame.setVisible(true);
